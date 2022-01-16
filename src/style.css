@@ -7,6 +7,8 @@
 }
 html {
   box-sizing: border-box;
+  background: var(--background);
+  color: var(--color);
 }
 
 body * {
@@ -84,14 +86,23 @@ body * {
   width: 100%;
 }
 
-/* dark mode 처리
+/* dark mode 처리 */
+:root[color-theme='light'] {
+  --background: #fff;
+  --color: #000;
+}
+
+:root[color-theme='dark'] {
+  --background: #000;
+  --color: #fff;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #000;
     color: white;
   }
 }
-*/
 
 @media screen and (max-width: 992px) {
   .SearchResult {

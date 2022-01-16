@@ -1,5 +1,3 @@
-console.log('app is running!');
-
 class App {
   $target = null;
   data = [];
@@ -32,6 +30,8 @@ class App {
         image: null,
       },
     });
+
+    this.darkMode = new DarkMode({ $target });
   }
 
   setState(nextData) {
