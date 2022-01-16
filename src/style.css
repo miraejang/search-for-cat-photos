@@ -1,8 +1,9 @@
 @font-face {
-    font-family: 'Goyang';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Goyang';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 html {
   box-sizing: border-box;
@@ -90,4 +91,20 @@ body * {
     color: white;
   }
 }
-*?
+*/
+
+@media screen and (max-width: 992px) {
+  .SearchResult {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .SearchResult {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 576px) {
+  .SearchResult {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
