@@ -26,12 +26,12 @@ class ImageInfo {
         <div class="content-wrapper">
           <div class="title">
             <span>${name}</span>
-            <div class="close">x</div>
+            <button class="close">x</button>
           </div>
           <img src="${url}" alt="${name}"/>        
           <div class="description">
-            <div>성격: ${temperament}</div>
-            <div>태생: ${origin}</div>
+            <p>성격: ${temperament}</p>
+            <p>태생: ${origin}</p>
           </div>
         </div>`;
       this.$imageInfo.style.display = 'block';
