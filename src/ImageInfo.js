@@ -18,23 +18,39 @@ class ImageInfo {
     this.render();
   }
 
+  closeModal(e) {
+    if (
+      e.target.className === 'ImageInfo' ||
+      e.target.className === 'close' ||
+      e.code === 'Escape'
+    ) {
+      this.$imageInfo.style.display = 'none';
+    }
+  }
+
+  setImageInfoModal(data) {
+    const { name, url, temperament, origin } = data.image;
+
+    this.$imageInfo.innerHTML = `
+      <div class="content-wrapper">
+        <div class="title">
+          <span>${name}</span>
+          <button class="close">x</button>
+        </div>
+        <img src="${url}" alt="${name}"/>        
+        <div class="description">
+          <p>성격: ${temperament}</p>
+          <p>태생: ${origin}</p>
+        </div>
+      </div>`;
+  }
+
   render() {
     if (this.data.visible) {
-      const { name, url, temperament, origin } = this.data.image;
-
-      this.$imageInfo.innerHTML = `
-        <div class="content-wrapper">
-          <div class="title">
-            <span>${name}</span>
-            <button class="close">x</button>
-          </div>
-          <img src="${url}" alt="${name}"/>        
-          <div class="description">
-            <p>성격: ${temperament}</p>
-            <p>태생: ${origin}</p>
-          </div>
-        </div>`;
+      this.setImageInfoModal(this.data);
       this.$imageInfo.style.display = 'block';
+      document.addEventListener('click', e => this.closeModal(e));
+      document.addEventListener('keyup', e => this.closeModal(e));
     } else {
       this.$imageInfo.style.display = 'none';
     }
