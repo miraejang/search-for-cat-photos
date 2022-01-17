@@ -15,10 +15,11 @@ class App {
     this.searchResult = new SearchResult({
       $target,
       initialData: this.data,
-      onClick: image => {
+      onClick: async image => {
+        const catDetail = await api.fetchDetail(image.id);
         this.imageInfo.setState({
           visible: true,
-          image,
+          detail: catDetail.data,
         });
       },
     });
@@ -35,7 +36,6 @@ class App {
   }
 
   setState(nextData) {
-    console.log(this);
     this.data = nextData;
     this.searchResult.setState(nextData);
   }

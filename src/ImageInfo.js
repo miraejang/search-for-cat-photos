@@ -29,7 +29,7 @@ class ImageInfo {
   }
 
   setImageInfoModal(data) {
-    const { name, url, temperament, origin } = data.image;
+    const { name, url, temperament, origin } = data.detail;
 
     this.$imageInfo.innerHTML = `
       <div class="content-wrapper">
