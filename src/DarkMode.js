@@ -9,9 +9,11 @@ class DarkMode {
 
     $target.prepend(this.$darkModeBox);
     this.render();
+
+    this.setThemeMode(this.isDark);
   }
 
-  changeMode(isDark) {
+  setThemeMode(isDark) {
     if (isDark) {
       document.documentElement.setAttribute('color-theme', 'dark');
     } else {
@@ -27,7 +29,7 @@ class DarkMode {
     <label for="darkMode">Dark Mode</label>`;
     const $checkbox = this.$darkModeBox.querySelector('input');
     $checkbox.addEventListener('change', e => {
-      this.changeMode(e.target.checked);
+      this.setThemeMode(e.target.checked);
     });
   }
 }
