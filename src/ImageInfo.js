@@ -18,13 +18,27 @@ class ImageInfo {
     this.render();
   }
 
+  fadeIn(duration = 400) {
+    this.$imageInfo.style.display = 'block';
+    this.$imageInfo.animate([{ opacity: 0 }, { opacity: 1 }], {
+      duration: duration,
+    });
+  }
+
+  fadeOut(duration = 400) {
+    setTimeout(() => (this.$imageInfo.style.display = 'none'), duration);
+    this.$imageInfo.animate([{ opacity: 1 }, { opacity: 0 }], {
+      duration: duration,
+    });
+  }
+
   closeModal(e) {
     if (
       e.target.className === 'ImageInfo' ||
       e.target.className === 'close' ||
       e.code === 'Escape'
     ) {
-      this.$imageInfo.style.display = 'none';
+      this.fadeOut(1000);
     }
   }
 
@@ -48,7 +62,7 @@ class ImageInfo {
   render() {
     if (this.data.visible) {
       this.setImageInfoModal(this.data);
-      this.$imageInfo.style.display = 'block';
+      this.fadeIn(1000);
       document.addEventListener('click', e => this.closeModal(e));
       document.addEventListener('keyup', e => this.closeModal(e));
     } else {
