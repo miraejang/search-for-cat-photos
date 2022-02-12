@@ -47,6 +47,17 @@ body * {
   width: 100%;
 }
 
+.SearchResult.empty {
+  display: block;
+  font-size: 2em;
+  text-align: center;
+}
+
+.SearchResult.empty .icon {
+  font-size: 1.5em;
+  vertical-align: sub;
+}
+
 .SearchInput {
   width: 100%;
   font-size: 40px;

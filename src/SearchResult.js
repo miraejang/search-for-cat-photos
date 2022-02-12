@@ -20,20 +20,26 @@ class SearchResult {
   }
 
   render() {
-    this.$searchResult.innerHTML = this.data
-      .map(
-        cat => `
-          <div class="item">
-            <img src=${cat.url} alt=${cat.name} />
-          </div>
-        `
-      )
-      .join('');
+    if (this.data.length > 0) {
+      this.$searchResult.classList.remove('empty');
+      this.$searchResult.innerHTML = this.data
+        .map(
+          cat => `
+        <div class="item">
+          <img src=${cat.url} alt=${cat.name} />
+        </div>
+      `
+        )
+        .join('');
 
-    this.$searchResult.querySelectorAll('.item').forEach(($item, index) => {
-      $item.addEventListener('click', () => {
-        this.onClick(this.data[index]);
+      this.$searchResult.querySelectorAll('.item').forEach(($item, index) => {
+        $item.addEventListener('click', () => {
+          this.onClick(this.data[index]);
+        });
       });
-    });
+    } else {
+      this.$searchResult.classList.add('empty');
+      this.$searchResult.innerHTML = `<p><span class="icon">━</span> 검색 결과가 없습니다.</p>`;
+    }
   }
 }
