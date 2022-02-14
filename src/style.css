@@ -64,6 +64,20 @@ body * {
   padding: 10px 15px;
 }
 
+.SearcHistory {
+  display: flex;
+  padding: 0;
+}
+
+.SearcHistory li {
+  margin: 0 0.5em;
+  padding: 0.2em 1em;
+  border-radius: 2em;
+  background-color: lightblue;
+  list-style: none;
+  cursor: pointer;
+}
+
 .ImageInfo {
   position: fixed;
   left: 0;

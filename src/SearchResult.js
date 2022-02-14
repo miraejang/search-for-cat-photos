@@ -10,8 +10,6 @@ class SearchResult {
 
     this.data = initialData;
     this.onClick = onClick;
-
-    this.render();
   }
 
   setState(nextData) {
@@ -20,7 +18,7 @@ class SearchResult {
   }
 
   render() {
-    if (this.data.length > 0) {
+    if (this.data && this.data.length) {
       this.$searchResult.classList.remove('empty');
       this.$searchResult.innerHTML = this.data
         .map(

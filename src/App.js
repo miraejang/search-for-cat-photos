@@ -7,8 +7,10 @@ class App {
 
     this.searchInput = new SearchInput({
       $target,
-      onSearch: keyword => {
-        api.fetchCats(keyword).then(({ data }) => this.setState(data));
+      onSearch: async keyword => {
+        await api.fetchCats(keyword).then(({ data }) => {
+          this.setState(data);
+        });
       },
     });
 

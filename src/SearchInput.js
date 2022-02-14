@@ -12,6 +12,7 @@ class SearchInput {
 
     $searchInput.addEventListener('keyup', e => {
       if (e.keyCode === 13) {
+        this.searchHistory.setState(e.target.value);
         onSearch(e.target.value);
       }
     });
@@ -20,6 +21,14 @@ class SearchInput {
       if (e.target.value.length > 0) {
         e.target.value = '';
       }
+    });
+
+    this.searchHistory = new SearchHistory({
+      $target,
+      onClick: keyword => {
+        $searchInput.value = keyword;
+        onSearch(keyword);
+      },
     });
   }
 
