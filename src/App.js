@@ -8,9 +8,11 @@ class App {
     this.searchInput = new SearchInput({
       $target,
       onSearch: async keyword => {
+        this.loading.setState(true);
         await api.fetchCats(keyword).then(({ data }) => {
           this.setState(data);
         });
+        this.loading.setState(false);
       },
     });
 
@@ -35,6 +37,8 @@ class App {
     });
 
     this.darkMode = new DarkMode({ $target });
+
+    this.loading = new Loading({ $target });
   }
 
   setState(nextData) {
