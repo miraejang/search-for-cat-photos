@@ -14,6 +14,13 @@ class App {
         });
         this.loading.setState(false);
       },
+      onRandom: async () => {
+        this.loading.setState(true);
+        await api.fetchRandom().then(({ data }) => {
+          this.setState(data);
+        });
+        this.loading.setState(false);
+      },
     });
 
     this.searchResult = new SearchResult({

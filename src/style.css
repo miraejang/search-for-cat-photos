@@ -27,6 +27,38 @@ body * {
   column-gap: 1.5em;
 }
 
+.SearchBox {
+  display: flex;
+  width: 100%;
+}
+
+.SearchInput {
+  flex: 1;
+  margin-right: 1em;
+  font-size: 40px;
+  padding: 10px 15px;
+}
+
+.randomButton {
+  font-size: 0;
+  padding: 0 2em;
+  font-size: 25px;
+}
+
+.SearcHistory {
+  display: flex;
+  padding: 0;
+}
+
+.SearcHistory li {
+  margin: 0 0.5em;
+  padding: 0.2em 1em;
+  border-radius: 2em;
+  background-color: lightblue;
+  list-style: none;
+  cursor: pointer;
+}
+
 .SearchResult {
   margin-top: 10px;
   display: grid;
@@ -56,26 +88,6 @@ body * {
 .SearchResult.empty .icon {
   font-size: 1.5em;
   vertical-align: sub;
-}
-
-.SearchInput {
-  width: 100%;
-  font-size: 40px;
-  padding: 10px 15px;
-}
-
-.SearcHistory {
-  display: flex;
-  padding: 0;
-}
-
-.SearcHistory li {
-  margin: 0 0.5em;
-  padding: 0.2em 1em;
-  border-radius: 2em;
-  background-color: lightblue;
-  list-style: none;
-  cursor: pointer;
 }
 
 .ImageInfo {
