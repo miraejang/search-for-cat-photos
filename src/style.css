@@ -55,6 +55,7 @@ body * {
   padding: 0.2em 1em;
   border-radius: 2em;
   background-color: lightblue;
+  color: #000;
   list-style: none;
   cursor: pointer;
 }
