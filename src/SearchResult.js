@@ -10,11 +10,21 @@ class SearchResult {
 
     this.data = initialData;
     this.onClick = onClick;
+
+    this.getPageData();
   }
 
   setState(nextData) {
     this.data = nextData;
+    localStorage.setItem('pageData', JSON.stringify(nextData));
     this.render();
+  }
+
+  getPageData() {
+    this.data = JSON.parse(localStorage.getItem('pageData'));
+    if (this.data.length) {
+      this.render();
+    }
   }
 
   render() {

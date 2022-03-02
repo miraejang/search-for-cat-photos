@@ -8,27 +8,31 @@ class SearchHistory {
     $target.appendChild($searchHistory);
 
     this.history = this.data;
+    this.max = 5;
     this.onClick = onClick;
-  }
 
-  searchHistory() {
-    const history = this.history;
-    if (history && history.length > 5) {
-      history = history.slice(-5);
-      return history;
-    }
+    this.getHistory();
   }
 
   setState(data) {
     this.history.push(data);
+    if (this.history && this.history.length > this.max) {
+      this.history = this.history.slice(-this.max);
+    }
+    localStorage.setItem('history', JSON.stringify(this.history));
+    this.render();
+  }
+
+  getHistory() {
+    this.history = JSON.parse(localStorage.getItem('history'));
     this.render();
   }
 
   render() {
     if (this.history) {
-      const history = this.history;
-      const lastHistory = history.slice(-5).reverse();
-      this.$searchHistory.innerHTML = lastHistory
+      const history = [...this.history];
+      this.$searchHistory.innerHTML = history
+        .reverse()
         .map(keyword => `<li class="keyword">${keyword}</li>`)
         .join('');
 
