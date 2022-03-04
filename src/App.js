@@ -23,6 +23,10 @@ class App {
       },
     });
 
+    this.randomBanner = new RandomBanner({
+      $target,
+    });
+
     this.searchResult = new SearchResult({
       $target,
       initialData: this.data,
